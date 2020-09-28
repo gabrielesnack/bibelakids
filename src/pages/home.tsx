@@ -6,7 +6,7 @@ class Home extends React.Component {
     return (
       <div className="App">
         <Flex align="center" w="100vw" justify="center">
-          <Heading as="h1" color="blue">
+          <Heading as="h1" color="blue.400">
             Wellcome The First Page. I am using the Chakra-UI
           </Heading>
         </Flex>
