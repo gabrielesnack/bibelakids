@@ -6,9 +6,8 @@ import { ThemeProvider, CSSReset } from '@chakra-ui/core';
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider>
-      <CSSReset>
-        <Routes />
-      </CSSReset>
+      <CSSReset />
+      <Routes />
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
