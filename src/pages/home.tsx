@@ -2,7 +2,7 @@ import React from 'react';
 import { Link as ReachLink } from 'react-router-dom';
 import { Heading, Flex, Link } from '@chakra-ui/core';
 
-import { CommonHeader } from '../components/headers/';
+import { CommonHeader } from '@/components/headers';
 
 class Search extends React.Component {
   render() {

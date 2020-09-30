@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Image, Box, Grid } from '@chakra-ui/core';
-import { INavbar } from '../../interfaces/navbar';
+import { INavbar } from './types';
 
 const defaultHeight = ['70px', null, '60px'];
 

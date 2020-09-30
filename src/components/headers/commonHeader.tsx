@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import CommonNavbar from '../navbars/commonNavbar';
+import CommonNavbar from '@/components/navbars/commonNavbar';
 
 export default function header() {
   const [isMenuOpen, openMenu] = useState(false);

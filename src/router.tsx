@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Home, Search } from './pages/';
+import { Home, Search } from '@/pages/';
 
 export default function Routes() {
   return (
