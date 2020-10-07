@@ -1,19 +1,13 @@
 import React from 'react';
 
-import { CommonHeader } from '@/components/headers';
+import CommonLayout from '@/layouts/commonLayout';
 
-class Search extends React.Component {
-  render() {
-    return (
-      <>
-        <CommonHeader
-          className="container"
-          px={['5', '6', '12']}
-          bg="blue.400"
-        ></CommonHeader>
-      </>
-    );
-  }
-}
+const Home = () => {
+  return (
+    <CommonLayout>
+      <h1>Layout was create sucess | Page Home</h1>
+    </CommonLayout>
+  );
+};
 
-export default Search;
+export default Home;

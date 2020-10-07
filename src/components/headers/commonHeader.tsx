@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Grid, Box, BoxProps } from '@chakra-ui/core';
 import CommonNavbar from '@/components/navbars/commonNavbar';
-import CommonNavitem from '~/components/navbars/commonNavitem';
+import CommonNavitem from '@/components/navbars/commonNavitem';
 
 const Header = (props: BoxProps) => {
   const { bg, px } = props;
