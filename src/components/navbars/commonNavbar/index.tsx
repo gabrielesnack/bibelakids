@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { Image, Box, Grid } from '@chakra-ui/core';
-import { INavbar } from './types';
+import { Image, Box, Text, Grid } from '@chakra-ui/core';
+import { NavbarProps } from './types';
 
 const defaultHeight = ['70px', null, '60px'];
 
-export default function navbar({
-  bg = 'blue.400',
-  brand,
-  height = defaultHeight,
-  isMenuOpen,
-  onClickMenu,
-}: INavbar) {
+const Navbar = (props: NavbarProps) => {
+  const {
+    bg,
+    px,
+    brand,
+    height = defaultHeight,
+    isMenuOpen,
+    onClickMenu,
+    children,
+  } = props;
+
   const [secondGridHeight, setSecondGridHeight] = useState(defaultHeight);
 
   //fix height of second grid
@@ -24,44 +28,48 @@ export default function navbar({
 
   return (
     <Grid
-      pos={[isMenuOpen ? 'fixed' : 'static', null, 'static']}
+      as="nav"
       w="100%"
-      templateColumns={['repeat(1, 1fr)', null, 'repeat(2, 1fr)']}
+      h="auto"
+      px={px}
+      templateColumns={['auto auto 1fr', null, 'auto auto 1fr']}
+      templateRows="auto auto"
+      alignItems="center"
     >
-      <Box
-        d="flex"
-        justifyContent="space-between"
-        alignItems="center"
-        w="100%"
-        h={height}
-        px="6"
-        bg={bg}
-      >
-        <Box size={brand.size}>
+      <Box d="flex" h={height} bg={bg}>
+        <Box my="auto" mr="4" size={brand.size}>
           <Image src={brand.src} alt={brand.alt} />
         </Box>
-        <Box
-          display={{ sm: 'block', md: 'none' }}
-          cursor="pointer"
-          onClick={onClickMenu}
+      </Box>
+      <Text fontSize="xl">My Company</Text>
+
+      <Box
+        display={{ sm: 'block', md: 'none' }}
+        cursor="pointer"
+        onClick={onClickMenu}
+      >
+        <svg
+          fill="black"
+          width="30px"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{ marginLeft: 'auto' }}
         >
-          <svg
-            fill="black"
-            width="30px"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
-        </Box>
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+        </svg>
       </Box>
       <Box
         d={[isMenuOpen ? 'block' : 'none', null, 'block']}
+        gridArea={['2 / 1 / 2 / span 3', null, '1 / 3 / 1 / 3']}
         w="100%"
         h={secondGridHeight}
         bg={bg}
-      />
+      >
+        {children}
+      </Box>
     </Grid>
   );
-}
+};
+
+export default Navbar;
