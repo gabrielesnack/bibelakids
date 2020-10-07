@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Grid, Box, BoxProps } from '@chakra-ui/core';
 import CommonNavbar from '@/components/navbars/commonNavbar';
 import CommonNavitem from '@/components/navbars/commonNavitem';
+import logo from '@/img/icon.png';
 
 const Header = (props: BoxProps) => {
   const { bg, px } = props;
@@ -26,7 +27,7 @@ const Header = (props: BoxProps) => {
         px={px}
         brand={{
           size: ['50px', null, '45px'],
-          src: 'http://localhost:3000/img/icon.png',
+          src: logo,
           alt: 'Bibela Kids',
         }}
         isMenuOpen={isMenuOpen}
