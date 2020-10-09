@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Image, Box, Text, Grid } from '@chakra-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faBars as openMenuIcon,
+  faTimes as closeMenuIcon,
+} from '@fortawesome/free-solid-svg-icons';
 import { NavbarProps } from './types';
 
 const defaultHeight = ['70px', null, '60px'];
@@ -48,16 +53,11 @@ const Navbar = (props: NavbarProps) => {
         cursor="pointer"
         onClick={onClickMenu}
       >
-        <svg
-          fill="black"
-          width="30px"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-          style={{ marginLeft: 'auto' }}
-        >
-          <title>Menu</title>
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-        </svg>
+        <FontAwesomeIcon
+          size="2x"
+          icon={isMenuOpen ? closeMenuIcon : openMenuIcon}
+          style={{ display: 'block', marginLeft: 'auto' }}
+        />
       </Box>
       <Box
         d={[isMenuOpen ? 'block' : 'none', null, 'block']}

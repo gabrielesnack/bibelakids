@@ -4,10 +4,11 @@ import CommonNavbar from '@/components/navbars/commonNavbar';
 import CommonNavitem from '@/components/navbars/commonNavitem';
 import logo from '@/img/icon.png';
 
+const fontLinks = ['2xl', 'xl'];
+const marginLinks = [4, 0];
+
 const Header = (props: BoxProps) => {
   const { bg, px } = props;
-  const fontLinks = ['2xl', 'xl'];
-  const marginLinks = [4, 0];
 
   const [isMenuOpen, openMenu] = useState(false);
 

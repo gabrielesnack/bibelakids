@@ -7,11 +7,7 @@ const CommonLayout = (props: ICommonLayout) => {
   const { children } = props;
   return (
     <>
-      <CommonHeader
-        className="container"
-        px={['5', '6', '12']}
-        bg="blue.400"
-      ></CommonHeader>
+      <CommonHeader px={['5', '6', '12']} bg="blue.400"></CommonHeader>
       {children}
     </>
   );
