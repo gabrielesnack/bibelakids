@@ -17,12 +17,7 @@ const Header = (props: BoxProps) => {
   }
 
   return (
-    <Box
-      as="header"
-      pos={[isMenuOpen ? 'fixed' : 'static', null, 'static']}
-      w="100%"
-      bg={bg}
-    >
+    <Box as="header" pos="fixed" w="100%" top="0" bg={bg}>
       <CommonNavbar
         bg={bg}
         px={px}
