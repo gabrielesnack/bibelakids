@@ -1,21 +1,39 @@
 import React from 'react';
-import { Box, BoxProps, Image, Text, Badge } from '@chakra-ui/core';
+import { Box, Image, Text, Badge } from '@chakra-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const ProductCard = (props: BoxProps) => {
+import { IProductItem } from './types';
+import { iconStyle } from './styles';
+
+const ProductCard = (props: IProductItem) => {
+  const { boxProps, title, img, price, discount } = props;
+
   return (
-    <Box pb="4" borderWidth="1px" rounded="lg" overflow="hidden" {...props}>
-      <Image
-        mx="auto"
-        src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Gtx260.jpg"
-      />
+    <Box
+      position="relative"
+      pb="4"
+      borderWidth="1px"
+      rounded="lg"
+      overflow="hidden"
+      {...boxProps}
+    >
+      <Box position="absolute" top="2" right="2">
+        <Box {...iconStyle} mr="2">
+          <FontAwesomeIcon icon={['far', 'copy']} />
+        </Box>
+        <Box {...iconStyle}>
+          <FontAwesomeIcon icon={['far', 'heart']} />
+        </Box>
+      </Box>
+      <Image mx="auto" src={img} />
       <Text fontSize="lg" px="4">
-        R$ 1.400,00
+        R$ {price}
         <Badge rounded="9px" px="2" variantColor="green">
-          23% OFF
+          {discount}% OFF
         </Badge>
       </Text>
       <Text fontSize="md" px="4">
-        Placa de vídeo Nvidia GeForce GTX 10 Series GTX 1050 Ti
+        {title}
       </Text>
     </Box>
   );

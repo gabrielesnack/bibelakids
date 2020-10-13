@@ -11,6 +11,13 @@ const columnsProduct = [
   'repeat(4, 23%)',
 ];
 
+const mockProduct = {
+  title: 'Placa de vídeo Nvidia GeForce GTX 10 Series GTX 1050 Ti',
+  img: 'https://upload.wikimedia.org/wikipedia/commons/e/e2/Gtx260.jpg',
+  price: '1.400,00',
+  discount: '25',
+};
+
 const Home = () => {
   return (
     <CommonLayout>
@@ -24,10 +31,10 @@ const Home = () => {
           templateRows="repeat(4, auto)"
           justifyContent="space-between"
         >
-          <ProductCard mb="4"></ProductCard>
-          <ProductCard mb="4"></ProductCard>
-          <ProductCard mb="4"></ProductCard>
-          <ProductCard mb="4"></ProductCard>
+          <ProductCard boxProps={{ mb: '4' }} {...mockProduct}></ProductCard>
+          <ProductCard boxProps={{ mb: '4' }} {...mockProduct}></ProductCard>
+          <ProductCard boxProps={{ mb: '4' }} {...mockProduct}></ProductCard>
+          <ProductCard boxProps={{ mb: '4' }} {...mockProduct}></ProductCard>
         </Grid>
       </>
     </CommonLayout>

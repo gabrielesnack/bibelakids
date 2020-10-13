@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Image, Box, Text, Grid } from '@chakra-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faBars as openMenuIcon,
-  faTimes as closeMenuIcon,
-} from '@fortawesome/free-solid-svg-icons';
 import { NavbarProps } from './types';
 
 const defaultHeight = ['70px', null, '60px'];
@@ -55,7 +51,7 @@ const Navbar = (props: NavbarProps) => {
       >
         <FontAwesomeIcon
           size="2x"
-          icon={isMenuOpen ? closeMenuIcon : openMenuIcon}
+          icon={isMenuOpen ? ['fas', 'times'] : ['fas', 'bars']}
           style={{ display: 'block', marginLeft: 'auto' }}
         />
       </Box>
