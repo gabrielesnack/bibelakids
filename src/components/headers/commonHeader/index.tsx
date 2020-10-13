@@ -4,8 +4,7 @@ import CommonNavbar from '@/components/navbars/commonNavbar';
 import CommonNavitem from '@/components/navbars/commonNavitem';
 import logo from '@/img/icon.png';
 
-const fontLinks = ['2xl', 'xl'];
-const marginLinks = [4, 0];
+import { navGroupLinksStyle, navLinksStyle, navFirstLinkStyle } from './styles';
 
 const Header = (props: BoxProps) => {
   const { bg, px } = props;
@@ -17,7 +16,7 @@ const Header = (props: BoxProps) => {
   }
 
   return (
-    <Box as="header" pos="fixed" w="100%" top="0" bg={bg}>
+    <Box as="header" pos="fixed" zIndex={100} w="100%" top="0" bg={bg}>
       <CommonNavbar
         bg={bg}
         px={px}
@@ -29,30 +28,17 @@ const Header = (props: BoxProps) => {
         isMenuOpen={isMenuOpen}
         onClickMenu={toggleMenu}
       >
-        <Grid
-          as="ul"
-          h={[null, null, '100%']}
-          templateColumns={['repeat(1, 1fr)', null, 'repeat(4, auto)']}
-          gap={[2, 4, 6]}
-          justifyContent="end"
-          alignItems={[null, null, 'center']}
-          style={{ listStyle: 'none' }}
-        >
-          <CommonNavitem
-            to="/"
-            mt={marginLinks}
-            mb={marginLinks}
-            fontSize={fontLinks}
-          >
+        <Grid as="ul" {...navGroupLinksStyle}>
+          <CommonNavitem to="/" {...navFirstLinkStyle}>
             Início
           </CommonNavitem>
-          <CommonNavitem to="/busca" mb={marginLinks} fontSize={fontLinks}>
+          <CommonNavitem to="/busca" {...navLinksStyle}>
             Busca
           </CommonNavitem>
-          <CommonNavitem to="/sobre" mb={marginLinks} fontSize={fontLinks}>
+          <CommonNavitem to="/sobre" {...navLinksStyle}>
             Sobre
           </CommonNavitem>
-          <CommonNavitem to="/sobre" mb={marginLinks} fontSize={fontLinks}>
+          <CommonNavitem to="/sobre" {...navLinksStyle}>
             Contato
           </CommonNavitem>
         </Grid>

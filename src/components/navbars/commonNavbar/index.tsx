@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { Image, Box, Text, Grid } from '@chakra-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { NavbarProps } from './types';
 
-const defaultHeight = ['70px', null, '60px'];
+import { NavbarProps } from './types';
+import { containerStyle, defaultNavbarHeightStyle } from './styles';
 
 const Navbar = (props: NavbarProps) => {
   const {
     bg,
     px,
     brand,
-    height = defaultHeight,
+    height = defaultNavbarHeightStyle,
     isMenuOpen,
     onClickMenu,
     children,
   } = props;
 
-  const [secondGridHeight, setSecondGridHeight] = useState(defaultHeight);
+  const [secondGridHeight, setSecondGridHeight] = useState(
+    defaultNavbarHeightStyle
+  );
 
   //fix height of second grid
   useEffect(() => {
@@ -28,15 +30,7 @@ const Navbar = (props: NavbarProps) => {
   }, [height, isMenuOpen]);
 
   return (
-    <Grid
-      as="nav"
-      w="100%"
-      h="auto"
-      px={px}
-      templateColumns={['auto auto 1fr', null, 'auto auto 1fr']}
-      templateRows="auto auto"
-      alignItems="center"
-    >
+    <Grid as="nav" {...containerStyle} px={px}>
       <Box d="flex" h={height} bg={bg}>
         <Box my="auto" mr="4" size={brand.size}>
           <Image src={brand.src} alt={brand.alt} />
@@ -45,7 +39,7 @@ const Navbar = (props: NavbarProps) => {
       <Text fontSize="xl">My Company</Text>
 
       <Box
-        display={{ sm: 'block', md: 'none' }}
+        d={{ sm: 'block', md: 'none' }}
         cursor="pointer"
         onClick={onClickMenu}
       >
